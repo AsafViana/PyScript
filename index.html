@@ -7,7 +7,13 @@
   <title>PyScript Testes hehehe</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+    - numpy
+    - matplotlib
+    - paths:
+      - /fire.py
+  </py-env>
 </head>
 
 <body>
@@ -40,6 +46,19 @@
       console.log(result)
         
       Element('texto-output').element.innerText = result
+  </py-script>
+
+  <div id="grafico"></div>
+  
+  <py-script output="grafico">
+    import matplotlib.pyplot as plt
+    from fire import x_y_aleatorio
+
+    x,y = x_y_aleatorio(n=1000)
+
+    fig, ax = plt.subplots()
+    ax.scatter(x, y)
+    fig
   </py-script>
 </body>
 
